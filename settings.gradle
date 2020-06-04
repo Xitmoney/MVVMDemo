@@ -1,0 +1,3 @@
+include ':premierqlibrary'
+include ':app'
+rootProject.name = "PremierQ"
