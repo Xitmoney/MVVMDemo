@@ -18,7 +18,7 @@ import java.lang.reflect.Type;
  * Created by xiaodengwen.
  * E-mail: leoan0923@163.com
  * Date: 2020/6/10
- * Desc:基础
+ * Desc:基础GIT
  */
 public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseViewModel> extends RxAppCompatActivity {
 
