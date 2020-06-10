@@ -8,21 +8,42 @@
         <variable
             name="login"
             type="com.premierq.viewmodel.LoginViewModel" />
+
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/titles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={login.userLiveData.sName}"
+            android:text="@={login.phoneLiveData.area}"
             android:gravity="center"
             android:textSize="30dp"
-
             />
-    </LinearLayout>
 
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/et"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="@={login.pass}"/>
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> login.onClickF(view)}"
+            android:text="提交"/>
+
+    </LinearLayout>
 </layout>

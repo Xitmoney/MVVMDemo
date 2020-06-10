@@ -6,10 +6,20 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.premierqlibrary.bus.Messenger;
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
+/**
+ * Created by xiaodengwen.
+ * E-mail: leoan0923@163.com
+ * Date: 2020/6/10
+ * Desc:基础
+ */
 public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseViewModel> extends RxAppCompatActivity {
 
     protected V binding;
@@ -22,7 +32,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         //私有的初始化Databinding和ViewModel方法
         Log.e("aaa","onCreate");
         initViewDataBinding(savedInstanceState);
-        initViewObservable();
+        processLogic();
     }
 
     @Override
@@ -35,6 +45,23 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         }
         if(binding != null){
             binding.unbind();
+        }
+    }
+
+    /**
+     * 在viewModel没有的时候，默认实例化一个
+     * */
+    public void createViewModel() {
+        if (viewModel == null) {
+            Class modelClass;
+            Type type = getClass().getGenericSuperclass();
+            if (type instanceof ParameterizedType) {
+                modelClass = (Class) ((ParameterizedType) type).getActualTypeArguments()[0];
+            } else {
+                //如果没有指定泛型参数，则默认使用BaseViewModel
+                modelClass = BaseViewModel.class;
+            }
+            viewModel = (VM)  new ViewModelProvider(this,new ViewModelProvider.NewInstanceFactory()).get(modelClass);
         }
     }
 
@@ -82,7 +109,10 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
 
 
     /**
-     * 页面事件监听的方法，一般用于ViewModel层转到View层的事件注册
+     * 处理逻辑业务
      */
-    public abstract void initViewObservable();
+    public abstract void processLogic();
+
+
+
 }

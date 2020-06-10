@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/blankFragment"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/blankFragment2"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/title_dashboard" />
+
+    <item
+        android:id="@+id/blankFragment3"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/title_notifications" />
+
+    <item
+        android:id="@+id/blankFragment4"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/title_my" />
+
+</menu>

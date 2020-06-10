@@ -57,4 +57,5 @@ dependencies {
     implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
     implementation 'com.trello.rxlifecycle3:rxlifecycle-android:3.0.0'
     implementation 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
+
 }

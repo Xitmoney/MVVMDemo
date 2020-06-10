@@ -16,17 +16,35 @@ import java.lang.ref.WeakReference;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
-public class BaseViewModel extends ViewModel implements IBaseViewModel {
+public class BaseViewModel extends AndroidViewModel implements IBaseViewModel {
+
+    //管理RxJava，主要针对RxJava异步操作造成的内存泄漏
+    CompositeDisposable mCompositeDisposable;
+
+    public BaseViewModel(@NonNull Application application) {
+        super(application);
+        mCompositeDisposable=new CompositeDisposable();
+    }
+
+
+    protected void addSubscribe(Disposable disposable) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = new CompositeDisposable();
+        }
+        mCompositeDisposable.add(disposable);
+    }
 
     @Override
     protected void onCleared() {
         super.onCleared();
         Log.e("aaa","onCleared");
         //ViewModel销毁时会执行，同时取消所有异步任务
-        /*if (mCompositeDisposable != null) {
+        if (mCompositeDisposable != null) {
             mCompositeDisposable.clear();
-        }*/
+        }
     }
+
+
 
 
     @Override
