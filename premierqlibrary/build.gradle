@@ -39,23 +39,23 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-   /* implementation "com.squareup.okhttp3:okhttp:3.1.4"
-    *//*Okhttp 报错Failed resolution of: Lorg/conscrypt/ConscryptHostnameVerifier ，缺少加密引用 *//*
-    implementation 'org.conscrypt:conscrypt-android:2.2.1'*/
+    api(rootProject.ext.dependencies["adapter-rxjava"])
+    api(rootProject.ext.dependencies["converter-gson"])
+    api(rootProject.ext.dependencies["rxlifecycle-componnents"])
+    api(rootProject.ext.dependencies["rxlifecycle-android"])
+    api(rootProject.ext.dependencies["androidx-appcompat"])
+    api(rootProject.ext.dependencies["scwang-refresh-kernel"])
+    api(rootProject.ext.dependencies.gson)
+    api(rootProject.ext.dependencies.retrofit)
+    api(rootProject.ext.dependencies.rxjava)
+    api(rootProject.ext.dependencies.rxandroid)
+    api(rootProject.ext.dependencies.rxlifecycle)
+    api(rootProject.ext.dependencies.webScoket)
+    api(rootProject.ext.dependencies.permission)
+    api(rootProject.ext.dependencies.androidproperties)
+    api(rootProject.ext.dependencies.multidex)
+    api(rootProject.ext.dependencies.autolayout)
+    api(rootProject.ext.dependencies.rxbinding)
 
-    implementation 'com.google.code.gson:gson:2.8.2'   //gson解析
-
-    implementation "com.squareup.retrofit2:retrofit:2.3.0"//retrofit2.9
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0' //配合Rxjava 使用
-    implementation 'com.squareup.retrofit2:converter-gson:2.1.0' //ConverterFactory的Gson:
-
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.3' //rxjava
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'  //rxandroid 线程调度
-
-
-    /*rx系列与View生命周期同步*/
-    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
-    implementation 'com.trello.rxlifecycle3:rxlifecycle-android:3.0.0'
-    implementation 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
 
 }

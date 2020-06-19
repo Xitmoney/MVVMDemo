@@ -29,7 +29,7 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding,LoginViewMo
 
 
     @Override
-    public void processLogic() {
+    public void initData() {
 
         PhoneEntityTest info=new PhoneEntityTest();
         info.setArea("132");

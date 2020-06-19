@@ -7,18 +7,19 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/blankFragment2"
+        android:id="@+id/blankFragmentTwo"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/title_dashboard" />
 
     <item
-        android:id="@+id/blankFragment3"
+        android:id="@+id/blankFragmentThree"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/title_notifications" />
 
     <item
-        android:id="@+id/blankFragment4"
+        android:id="@+id/blankFragmentFour"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/title_my" />
+
 
 </menu>

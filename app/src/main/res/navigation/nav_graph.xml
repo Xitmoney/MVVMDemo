@@ -7,32 +7,27 @@
 
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.premierq.BlankFragment"
+        android:name="com.premierq.fragment.BlankFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_blank" >
-        <!--<action
-            android:id="@+id/action_blankFragment_to_blankFragment2"
-            app:destination="@id/blankFragment2"
-            />-->
+
     </fragment>
     <fragment
-        android:id="@+id/blankFragment2"
-        android:name="com.premierq.BlankFragment2"
-        android:label="fragment_blank2"
-        tools:layout="@layout/fragment_blank2" >
-       <!-- <action
-            android:id="@+id/action_blankFragment2_to_blankFragment"
-            app:destination="@id/blankFragment" />-->
+        android:id="@+id/blankFragmentTwo"
+        android:name="com.premierq.fragment.BlankFragmentTwo"
+        android:label="fragment_blank_two"
+        tools:layout="@layout/fragment_blank_two" >
+
     </fragment>
     <fragment
-        android:id="@+id/blankFragment3"
-        android:name="com.premierq.BlankFragment3"
-        android:label="fragment_blank3"
-        tools:layout="@layout/fragment_blank3" />
+        android:id="@+id/blankFragmentThree"
+        android:name="com.premierq.fragment.BlankFragmentThree"
+        android:label="fragment_blank_three"
+        tools:layout="@layout/fragment_blank_three" />
 
     <fragment
-        android:id="@+id/blankFragment4"
-        android:name="com.premierq.BlankFragment4"
-        android:label="fragment_blank4"
-        tools:layout="@layout/fragment_blank4" />
+        android:id="@+id/blankFragmentFour"
+        android:name="com.premierq.fragment.BlankFragmentFour"
+        android:label="fragment_blank_four"
+        tools:layout="@layout/fragment_blank_four" />
 </navigation>

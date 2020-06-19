@@ -32,7 +32,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         //私有的初始化Databinding和ViewModel方法
         Log.e("aaa","onCreate");
         initViewDataBinding(savedInstanceState);
-        processLogic();
+        initData();
     }
 
     @Override
@@ -111,7 +111,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     /**
      * 处理逻辑业务
      */
-    public abstract void processLogic();
+    public abstract void initData();
 
 
 
