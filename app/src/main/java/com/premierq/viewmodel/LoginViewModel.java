@@ -6,25 +6,25 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.ObservableField;
-import androidx.databinding.ViewDataBinding;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 
 import com.premierq.MainActivity;
 import com.premierq.common.RepositoryHelper;
-import com.premierq.databinding.LoginActivityBinding;
 import com.premierq.entity.PhoneEntityTest;
 import com.premierq.entity.UserInfo;
 import com.premierqlibrary.base.BaseViewModel;
-import com.premierqlibrary.common.Utils;
+import com.premierqlibrary.common.ContextUtils;
 import com.premierqlibrary.net.BaseObserver;
 import com.premierqlibrary.net.RxSchedulersHelp;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class LoginViewModel extends BaseViewModel {
     MutableLiveData<UserInfo> userLiveData=null;
     MutableLiveData<PhoneEntityTest> phoneLiveData=null;
+    MutableLiveData<Integer> randLiveData=null;
 
     /**
      * 双向绑定，获取EditText控制
@@ -49,10 +49,16 @@ public class LoginViewModel extends BaseViewModel {
         return phoneLiveData;
     }
 
+    public MutableLiveData<Integer> getRandLiveData(){
+        if(randLiveData==null)
+            randLiveData=new MutableLiveData<>();
+        return randLiveData;
+    }
+
     public void getPhoneData(){
         RepositoryHelper.getPhoneApiService()
                 .getBaseResponsePhone("phone.get","13800138000","10003","b59bc3ef6191eb9f747dd4e83c99f2a4","json")
-                .compose(RxSchedulersHelp.observableIO2Main(Utils.getContext()))
+                .compose(RxSchedulersHelp.observableIO2Main(ContextUtils.getContext()))
                 .subscribe(new BaseObserver<PhoneEntityTest>(){
 
                     @Override
@@ -66,6 +72,24 @@ public class LoginViewModel extends BaseViewModel {
                     }
                 });
     }
+
+
+    Timer timer=null;
+    TimerTask task=null;
+    public void randChangeTextBackground(){
+        if(timer==null)
+            timer=new Timer();
+        task=new TimerTask() {
+            @Override
+            public void run() {
+                int rand=new Random().nextInt(200);
+                Log.e("rand",String.valueOf(rand));
+                randLiveData.postValue(rand);
+            }
+        };
+        timer.schedule(task,1000,2000);
+    }
+
 
     @Override
     protected void onCleared() {

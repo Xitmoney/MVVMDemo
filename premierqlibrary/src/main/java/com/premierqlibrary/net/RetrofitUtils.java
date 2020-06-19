@@ -4,8 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.premierqlibrary.base.IModel;
-import com.premierqlibrary.common.Utils;
+import com.premierqlibrary.common.ContextUtils;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -48,7 +47,7 @@ public class RetrofitUtils {
      * 配置OkhttpClient
      * */
     public static OkHttpClient getOkhttpClientConfig(){
-        File cacheFile = new File(Utils.getContext().getCacheDir(), "cache");
+        File cacheFile = new File(ContextUtils.getContext().getCacheDir(), "cache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); //100Mb
 
         return  new OkHttpClient.Builder()

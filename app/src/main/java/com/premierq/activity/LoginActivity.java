@@ -36,6 +36,8 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding,LoginViewMo
         viewModel.getPhoneLiveData().setValue(info);
         viewModel.getPhoneData();
 
+        viewModel.getRandLiveData().setValue(0);
+        viewModel.randChangeTextBackground();
     }
 
 
